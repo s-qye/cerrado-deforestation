@@ -1,0 +1,15 @@
+{
+  "crs": "EPSG:31983",
+  "cell_size_m": 1000,
+  "grid_rows": 571,
+  "grid_cols": 257,
+  "cells_kept": 80390,
+  "ee_crs_transform": [
+    1000,
+    0,
+    327000.0,
+    0,
+    -1000,
+    8883000.0
+  ]
+}
