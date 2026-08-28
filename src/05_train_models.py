@@ -111,7 +111,7 @@ def main():
  
     # report
     res = pd.DataFrame(results)
-    print("\n--- Results on the test years ---")
+    print("\nResults on the test years")
     with pd.option_context("display.width", 140, "display.max_columns", None):
         print(res.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
  
@@ -120,7 +120,7 @@ def main():
         "importance": model.feature_importances_,
     }).sort_values("importance", ascending=False)
  
-    print("\n--- What LightGBM leaned on ---")
+    print("\nFeature Importances for LightGBM")
     print(imp.to_string(index=False))
  
     OUT_DIR.mkdir(exist_ok=True)
