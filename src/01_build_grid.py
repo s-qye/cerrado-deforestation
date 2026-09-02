@@ -40,7 +40,7 @@ def strip_accents(text):
 
 def load_municipalities():
     """Get Bahia municipalities from IGBE and keep the 8 targets"""
-    bahia = geobr.read_municipality(code_muni="BA", year=2022) #geobr???
+    bahia = geobr.read_municipality(code_muni="BA", year=2022)
     bahia['key'] = bahia['name_muni'].map(strip_accents)
 
     wanted = {strip_accents(name) for name in TARGETS}
@@ -51,7 +51,7 @@ def load_municipalities():
     if missing:
         raise ValueError(f"Missing municipalities: {missing}")
     
-    muns = muns.to_crs(CRS) #crs???
+    muns = muns.to_crs(CRS)
     return muns[["code_muni", "name_muni", "geometry"]].reset_index(drop=True)
 
 def build_grid(muns, cell=CELL):
@@ -62,7 +62,7 @@ def build_grid(muns, cell=CELL):
     """
     xmin, ymin, xmax, ymax = muns.total_bounds
 
-    # Snap the origin outward to a clean multiple of the cell size. why??? is this a common practice?
+    # Snap the origin outward to a clean multiple of the cell size.
     x0 = np.floor(xmin / cell) * cell
     y0 = np.floor(ymin / cell) * cell
     x1 = np.ceil(xmax / cell) * cell
